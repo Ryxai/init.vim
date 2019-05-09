@@ -1,8 +1,10 @@
 "Basics
 syntax enable
 filetype off
-set tabstop=4
-set softtabstop=4
+set autoindent
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set number
 set relativenumber
@@ -33,6 +35,7 @@ Plug 'idris-hackers/idris-vim'
 Plug 'kamwitsta/nordisk'
 Plug 'kamwitsta/mythos'
 Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete-clangx'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
 Plug 'neomake/neomake'
@@ -41,8 +44,10 @@ Plug 'Raimondi/delimitMate'
 Plug 'phanviet/Sidonia'
 Plug 'arcticicestudio/nord-vim'
 Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'jvoorhis/coq.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
+Plug 'vim-latex/vim-latex'
 call plug#end()
 
 
@@ -62,9 +67,11 @@ nnoremap gR gD:%s/<C-R>///gc<left><left><left>
 set cursorline
 set cursorcolumn
 set colorcolumn=80
+set spell
 
 "Presentation
 colorscheme nord
+hi Normal guibg=None
 
 "DevIcons
 let g:airline_powerline_fonts=1
@@ -74,6 +81,6 @@ let vim_markdown_preview_github=1
 
 "Terminal Mode
 tnoremap <Esc> <C-\><C-n>
-tnoremap jj <C-\><C-n> 
+tnoremap jj <C-\><C-n>
 "Launch termial in a new tab
 nnoremap <space><space><leader> :tabedit term://bash<CR>
