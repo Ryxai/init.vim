@@ -3,7 +3,7 @@ syntax enable
 filetype off
 set autoindent
 set tabstop=2
-set softtabstop=2
+set softtabstop=2 
 set shiftwidth=2
 set expandtab
 set number
@@ -13,7 +13,7 @@ set lazyredraw
 set showmatch
 set incsearch
 set hlsearch
-set nowrap
+set nowrap 
 set foldenable
 set foldlevelstart=99
 set foldnestmax=99
@@ -28,7 +28,7 @@ set foldlevelstart=99
 set foldnestmax=99
 set foldmethod=indent
 
-"Plugins
+"Plugins call 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'idris-hackers/idris-vim'
@@ -48,6 +48,15 @@ Plug 'jvoorhis/coq.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-latex/vim-latex'
+Plug 'wlangstroth/vim-racket'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'dense-analysis/ale'
+Plug 'alx741/vim-hindent'
+Plug 'airblade/vim-gitgutter'
+Plug 'neovimhaskell/nvim-hs.vim'
+Plug 'arbitary/haskell-comment-vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentline'
 call plug#end()
 
 
@@ -67,7 +76,6 @@ nnoremap gR gD:%s/<C-R>///gc<left><left><left>
 set cursorline
 set cursorcolumn
 set colorcolumn=80
-set spell
 
 "Presentation
 colorscheme nord
@@ -84,3 +92,16 @@ tnoremap <Esc> <C-\><C-n>
 tnoremap jj <C-\><C-n>
 "Launch termial in a new tab
 nnoremap <space><space><leader> :tabedit term://bash<CR>
+
+"Rainbow Parens
+augroup rainbow_lisp
+  autocmd!
+  autocmd FileType lisp,clojure,racket,scheme,idris,haskell RainbowParentheses
+
+""""Haskell Stuff
+"ALE Linter Fix for Haskell
+let g:ale_linters = {
+      \ 'haskell' : ['stack-ghc', 'stack-build', 'floskell', 'hlint', 'hdevtools', 'hfmt', 'stylish-haskell', 'trim-whitespace'],
+      \}
+""Haskell commeter
+let g:enable_hs_comment_bindings = 2
