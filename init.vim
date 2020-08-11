@@ -90,8 +90,10 @@ let vim_markdown_preview_github=1
 "Terminal Mode
 tnoremap <Esc> <C-\><C-n>
 tnoremap jj <C-\><C-n>
-"Launch termial in a new tab
+"Launch termial in a new tab using basic bash
 nnoremap <space><space><leader> :tabedit term://bash<CR>
+"For Mac Iterm2 and General ZSH use
+"nnoremap <space><space><leader> :tabedit term://zsh<CR>
 
 "Rainbow Parens
 augroup rainbow_lisp
